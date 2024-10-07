@@ -26,35 +26,40 @@ class _RegistrationPageState extends State<RegistrationPage> {
           },
         ),
       ),
+      StepData(content: PhoneRegist(
+          onPhoneNumberEntered: (phoneNumber) {
+            setState(() {
+              phoneNumber;
+            });
+          },
+        ),)
     ];
 
     return Scaffold(
       body: SafeArea(
           child: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: CustomStepper(
-            currentStep: _currentStep,
-            steps: steps,
-            onStepContinue: () {
-              if (_currentStep < steps.length - 1) {
-                setState(() {
-                  _currentStep += 1;
-                });
-              }
-            },
-            onStepCancel: () {
-              if (_currentStep > 0) {
-                setState(() {
-                  _currentStep -= 1;
-                });
-              }
-            },
-            activeColor: Colors.blue,
-            inactiveColor: Colors.grey,
-          ),
-        ),
-      )),
+            child: CustomStepper(
+                currentStep: _currentStep,
+                steps: steps,
+                onStepContinue: () {
+                  if (_currentStep < steps.length - 1) {
+                    setState(() {
+                      _currentStep += 1;
+                    });
+                  }
+                },
+                onStepCancel: () {
+                  if (_currentStep > 0) {
+                    setState(() {
+                      _currentStep -= 1;
+                    });
+                  }
+                },
+                activeColor: Colors.blue,
+                inactiveColor: Colors.grey,
+              ),
+            ),
+      )
     );
   }
 }

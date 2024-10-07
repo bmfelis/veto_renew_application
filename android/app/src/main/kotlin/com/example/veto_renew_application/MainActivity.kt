@@ -1,4 +1,4 @@
-package com.example.veto_renew_application
+package com.veto.application
 
 import io.flutter.embedding.android.FlutterActivity
 

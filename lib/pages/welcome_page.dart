@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:veto_renew_application/pages/login_register_page.dart';
@@ -60,12 +61,12 @@ class _WelcomePageState extends State<WelcomePage> {
                             horizontal: 50, vertical: 15.0),
                       ),
                       onPressed: () async{
-                        // final provider = OAuthProvider('microsoft.com');
-                        // provider.setCustomParameters(
-                        //   {"tenant": "6f4432dc-20d2-441d-b1db-ac3380ba633d"}
-                        // );
+                        final provider = OAuthProvider('microsoft.com');
+                        provider.setCustomParameters(
+                          {"tenant": "6f4432dc-20d2-441d-b1db-ac3380ba633d"}
+                        );
 
-                        // await FirebaseAuth.instance.signInWithPopup(provider);
+                        await FirebaseAuth.instance.signInWithProvider(provider);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -73,10 +74,10 @@ class _WelcomePageState extends State<WelcomePage> {
                         );
                       },
                       child: const Wrap(
-                        spacing: 10.0,  // Space between text and image
+                        
                         crossAxisAlignment: WrapCrossAlignment.center,  // Align items in the center vertically
                         children: [
-                          Text('Sign Up with', style: TextStyle(color: Colors.white)),
+                          Text('Sign Up with KMUTT', style: TextStyle(color: Colors.white)),
                           SizedBox(width: 10.0),
                           Image(
                             image: AssetImage('assets/images/microsoftSignin.png'),

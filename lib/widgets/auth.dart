@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 class Auth{
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -30,5 +31,5 @@ class Auth{
   Future<void> signOut() async {
     await _auth.signOut();
   }
-  
+
 }
